@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Svof Enchanter &mdash; Svof docs</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '9',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Svof docs" href="index.html" />
+    <link rel="next" title="Svof Tattoo Inker" href="inker.html" />
+    <link rel="prev" title="Svof Elist Sorter" href="elistsorter.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="inker.html" title="Svof Tattoo Inker"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="elistsorter.html" title="Svof Elist Sorter"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Svof docs</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="svof-enchanter">
+<h1>Svof Enchanter<a class="headerlink" href="#svof-enchanter" title="Permalink to this headline">¶</a></h1>
+<p>The enchanter was written with whole orders in mind. It will Use the Medallion of Enchantment correctly, split creation batches accordingly and allows the start of whole orders in one command. The script also automatically detects the ids of the ouroboros. An example usage of the enchanter would be:</p>
+<div class="highlight-lua"><div class="highlight"><pre><span class="c1">-- lists all known enchantments</span>
+<span class="n">enchant</span> <span class="n">list</span>
+
+<span class="c1">-- shows the commodity cost of the order</span>
+<span class="n">enchant</span> <span class="n">cost</span> <span class="mi">19</span> <span class="n">eye</span><span class="p">,</span> <span class="n">scroll1234</span> <span class="n">waterwalking</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">45123</span> <span class="n">magic</span><span class="p">,</span> <span class="mi">10</span> <span class="n">star</span><span class="p">,</span> <span class="mi">10</span> <span class="n">meteor</span>
+
+<span class="c1">-- does the full order</span>
+<span class="n">enchant</span> <span class="mi">19</span> <span class="n">eye</span><span class="p">,</span> <span class="n">scroll1234</span> <span class="n">waterwalking</span><span class="p">,</span> <span class="n">boots12341</span> <span class="n">waterwalking</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">45123</span> <span class="n">magic</span><span class="p">,</span> <span class="mi">10</span> <span class="n">star</span><span class="p">,</span> <span class="mi">10</span> <span class="n">meteor</span>
+
+<span class="c1">-- repeats the same order</span>
+<span class="n">reenchant</span>
+</pre></div>
+</div>
+<div class="section" id="aliases">
+<h2>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-enchant-order">enchant &lt;order&gt;</dt>
+<dd><p class="first">Does your <strong>entire</strong> order - separate different enchantments with a comma.</p>
+<p>For item creation (<strong>including meteor</strong>), simply put the number of items you want to create.</p>
+<p class="last">For enchantments you can select an example for the items you want to enchant (specify it by id). If you choose to do so, you can specify, how many of that enchantment/item combination is made. Will then pick the items for you that have the same short description and are not worn. See the magic enchantment example above.</p>
+</dd>
+<dt id="term-enchant-list">enchant list</dt>
+<dd>Lists all known enchantments.</dd>
+<dt id="term-enchant-cost-order">enchant cost &lt;order&gt;</dt>
+<dd>Calculates the commodity cost of the order.</dd>
+<dt id="term-enchant-cancel">enchant cancel</dt>
+<dd>Stops the current order after the currently running enchantment.</dd>
+<dt id="term-enchant-cancel-force">enchant cancel force</dt>
+<dd>Immediately stops the current enchantment order</dd>
+<dt id="term-reenchant">reenchant</dt>
+<dd>Repeats the last order.</dd>
+<dt id="term-vconfig-enchantgetgold-command">vconfig enchantgetgold &lt;command&gt;</dt>
+<dd>Sets the command how to retrieve gold coins, if one is needed for the enchantment (action <strong>flipcoin</strong>). The command may contain &#8216;$&#8217; as command separator.</dd>
+<dt id="term-vconfig-enchantputgold-command">vconfig enchantputgold &lt;command&gt;</dt>
+<dd>Sets the command how to put gold coins away, if one is needed for the enchantment (action <strong>flipcoin</strong>). The command contain &#8216;$&#8217; as command separator.</dd>
+<dt id="term-vconfig-haveenchantmentmedallion">vconfig haveenchantmentmedallion</dt>
+<dd>Toggles whether you have the Medallion of Enchantment or not.</dd>
+</dl>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary docutils">
+<dt id="term-svo-get-enchant-cost-what-howmany-exampleitem-costcollection">svo.get_enchant_cost(what, howMany, exampleItem, costCollection)</dt>
+<dd><p class="first">what - the name of the enchantment</p>
+<p>howMany - amount of created items of that type</p>
+<p>exampleItem - If this is the empty string (&#8220;&#8221;), the howMany argument is ignored for enchantments. If it is something else, it calculates the cost of howMany enchantments. This value is ignored for created items and meteors.</p>
+<p>If costCollection is given and a table, the cost will also be added to that table. This is especially useful to collect total costs in a loop.</p>
+<p>Returns a key - value table with commodity as key and the needed amount as key.</p>
+<p>Example:</p>
+<div class="last highlight-lua"><div class="highlight"><pre><span class="n">vlua</span> <span class="n">svo</span><span class="p">.</span><span class="n">getEnchantCost</span><span class="p">(</span><span class="s2">&quot;</span><span class="s">star&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1">--returns</span>
+<span class="p">{</span>
+  <span class="n">goldbar</span> <span class="o">=</span> <span class="mi">20</span>
+  <span class="n">silverbar</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Svof Enchanter</a><ul>
+<li><a class="reference internal" href="#aliases">Aliases</a></li>
+<li><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="elistsorter.html"
+                        title="previous chapter">Svof Elist Sorter</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="inker.html"
+                        title="next chapter">Svof Tattoo Inker</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/enchanter.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="inker.html" title="Svof Tattoo Inker"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="elistsorter.html" title="Svof Elist Sorter"
+             >previous</a> |</li>
+        <li><a href="index.html">Svof docs</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Vadim Peretokin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
